@@ -1,0 +1,49 @@
+.NavBar{
+    display: flex;
+    color: pink;
+    height: 60px;
+    width: 100%;
+    border-bottom: solid black 2px;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    overflow: hidden;
+    background-color: white;
+}
+
+
+
+.NavBar__icon{
+    height: 60px;
+    width: 100px;
+    margin-right: 710px;
+    margin-left: 20px;
+    margin-top: 9px;
+}
+
+.NavBar__search{
+    margin-top: 9px;
+}
+
+.NavBar__github{
+    height: 43px;
+    width: 43px;
+}
+
+.NavBar__searchButton{
+    margin-right: 350px;
+    margin-top: 9px;
+
+}
+
+.signupButton{
+    margin-left: 5px;
+}
+
+.loginButton{
+    margin-left: 200px;
+}
+
+.logoutButton{
+    margin-left: 300px;
+}

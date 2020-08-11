@@ -1,0 +1,16 @@
+.SubredditPage__Body{
+    display: flex;
+    justify-content: space-between;
+    margin-left: 400px;
+}
+
+
+.SubredditPage__Posts{
+    display: flex;
+    flex-direction: column;
+}
+
+.SubredditPage__Button{
+    margin-left: 720px;
+    margin-bottom: 10px;
+}

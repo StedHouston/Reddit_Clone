@@ -1,0 +1,35 @@
+.SubredditCard{
+    border: solid grey 2px;
+    height: fit-content;
+    width: 800px;
+    background-color: white;
+    border-radius: 5px;
+    margin-top: 50px;
+    margin-left: 561px;
+}
+
+.SubredditCard__image{
+    height: 50px;
+}
+
+.SubredditCard__title{
+    font-weight: bold;
+}
+
+.SubredditCard__link{
+
+}
+
+.SubredditCard__button{
+    background-color: rgb(1,150,255);
+    border-radius: 5px;
+}
+
+.SubredditCard__profileUrl{
+    height: 48px;
+    width: 48px;
+}
+
+.content{
+    margin-top: 25px;
+}

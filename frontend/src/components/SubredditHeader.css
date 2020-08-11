@@ -1,0 +1,29 @@
+.Subreddit{
+    padding-top: 60px;
+}
+
+
+.Subreddit__banner{
+    height: 228px;
+    width: 100%;
+}
+
+.Subreddit__title{
+    display: flex;
+    margin-left: 400px;
+}
+
+.Subreddit__title--icon{
+    height: 75px;
+    width: 75px;
+}
+
+.Subreddit__title--text1{
+    font-size: 28px;
+    font-weight: bold;
+    margin-left: 50px;
+}
+
+.Subreddit__title--text2{
+    font-size: 14px
+}

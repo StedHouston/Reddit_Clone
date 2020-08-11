@@ -1,0 +1,10 @@
+.AboutCard{
+    height: 450px;
+    width: 300px;
+    border: black solid 2px;
+    background-color: #EFEFED;
+}
+
+.AboutCard__Header{
+    height: 50px;
+}

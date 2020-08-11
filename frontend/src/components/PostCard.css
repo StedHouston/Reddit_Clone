@@ -1,0 +1,34 @@
+.PostCard{
+    display: flex;
+    border: solid grey 1px;
+    border-radius: 5px;
+    height: fit-content;
+    width: 800px;
+    background-color: #EFEFED;
+    margin-top: 20px;
+}
+
+.PostCard__leftPanel{
+    background-color: #EFEFED;
+    height: 240px;
+    width: 50px;
+}
+
+.PostCard__Body--text{
+    background-color: #EFEFED;
+}
+
+.PostCard__Body--postedBy{
+    font-size: 12px;
+    padding-bottom: 5px;
+}
+
+.PostCard__Body--title{
+    font-size: 18px;
+    padding-bottom: 5px;
+    font-weight: bold;
+}
+
+.PostCard__Body--comments{
+    font-size: 12px;
+}
