@@ -1,7 +1,7 @@
 const express = require('express')
 const jwt = require('jsonwebtoken')
 const { User } = require('../models')
-const { asyncHandler } = require('../utils')
+const { asyncHandler, verifyLoginInfo} = require('../utils')
 const bcrypt = require('bcryptjs')
 
 
@@ -9,8 +9,12 @@ const router = express.Router()
 
 
 //User login
-router.post('/', asyncHandler(async  (req, res) => {
+router.post('/', verifyLoginInfo, asyncHandler(async  (req, res) => {
+    if(req.errors){
+        res.status(400).json({'errors': req.errors})
+    }
     const { email, password } = req.body;
+
 
     const loginUser = await User.findOne({
         where: {

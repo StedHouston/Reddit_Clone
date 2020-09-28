@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import SubredditCards from './SubredditCards';
-import notEmpty from '../utils';
+import { notEmpty } from '../utils';
 import './HomePage.css';
 import 'bulma/css/bulma.css';
 

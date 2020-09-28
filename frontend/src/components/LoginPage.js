@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { LoggedInAction } from '../Actions/LoggedIn';
+import { loginValidations } from '../utils';
 import 'bulma/css/bulma.css';
 import './LoginPage.css';
 
@@ -14,8 +15,14 @@ function LoginPage(){
     const [password, setPassword] = useState('')
     const history = useHistory()
     const dispatch = useDispatch()
+    const [errors, setErrors] = useState([])
 
     async function handleSubmit(){
+        let errors = loginValidations(email, password)
+        if(errors.length > 0){
+            setErrors(errors)
+            return;
+        }
         let response = await fetch(`http://localhost:8080/login`, {
             method: 'POST',
             headers: {
@@ -27,6 +34,12 @@ function LoginPage(){
             })
 
         })
+
+        if(!response.ok){
+            let result = await response.json()
+            setErrors(result.errors)
+            return;
+        }
         let result = await response.json()
         localStorage.setItem('token', result.token)
         if(result.token){
@@ -52,11 +65,12 @@ function LoginPage(){
                         <div className="control">
                             <input className="input" type="password" onChange={(e) => setPassword(e.target.value)} value={password}></input>
                         </div>
-                        <p className="control">
+                        <div className="control">
+                            {errors.map(error => <div style={{color: 'red'}} key={error}>{error}</div>)}
                             <button onClick={handleSubmit} className="button is-link">
                                 Login
                             </button>
-                        </p>
+                        </div>
                     </div>
             </div>
              </>
