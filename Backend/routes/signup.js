@@ -1,39 +1,37 @@
 const express = require('express')
 const jwt = require('jsonwebtoken')
 const JwtConfig  = require('../config/index')
-const { asyncHandler } = require('../utils')
+const { asyncHandler, verifySignupInfo } = require('../utils')
 const bcrypt = require('bcryptjs')
 const router = express.Router()
 const { User } = require('../models')
 
 
 
-router.post('/', asyncHandler(async (req, res) => {
-
+router.post('/', verifySignupInfo, asyncHandler(async (req, res) => {
+    if(req.errors){
+        res.status(400).json({'errors': req.errors})
+    }
     const { firstName, lastName, email, password, userName } = req.body;
 
     //check to see if username is already taken
-
     const name = await User.findAll({
         where: {
             userName: userName
         }
     })
-
     if(name.length){
-        res.send("Username already taken")
+        res.send({'errors': 'Username already taken'})
     }
 
-
+    //check if account already exits with email
     const checkEmail = await User.findAll({
         where: {
             email: email
         }
     })
-
-
     if(checkEmail.length){
-        res.json({"message": "Email is already registered"})
+        res.json({'errors': 'Email is already registered'})
     }
 
 
@@ -57,7 +55,7 @@ router.post('/', asyncHandler(async (req, res) => {
                     email: email
                 }
             })
-            console.log(tempUser.dataValues.id)
+
             let tokenUser = {
                 userName: userName,
                 id: tempUser.dataValues.id,

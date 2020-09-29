@@ -20,6 +20,7 @@ function verifyToken(req, res, next) {
     }
 }
 
+//verify login data sent in from client
 function verifyLoginInfo(req, res, next){
     let { email, password } = req.body;
     let errors = [];
@@ -34,6 +35,7 @@ function verifyLoginInfo(req, res, next){
     next()
 }
 
+//verify signup data sent in from client
 function verifySignupInfo(req, res, next){
     let { email, userName, firstName, lastName, password, confirmPassword } = req.body;
     let errors = [];
@@ -53,8 +55,25 @@ function verifySignupInfo(req, res, next){
         errors.push('Please enter a password')
     }
     if(!confirmPassword){
-        errors.push('Please enter your password again to confirm')
+        errors.push('Please enter your password in the confirm password field')
     }
+    if(firstName.length > 20){
+        errors.push('First name must be less than 21 characters')
+    }
+    if(lastName.length > 20){
+        errors.push('Last name must be less than 21 characters')
+    }
+    if(userName.length > 25){
+        errors.push('Username must be less than 26 characters')
+    }
+    if(email.length > 50){
+        errors.push('Email must be less than 51 characters')
+    }
+    if(password !== confirmPassword){
+        errors.push('Passwords do not match')
+    }
+    req.errors = errors;
+    next();
 
 }
 
@@ -65,5 +84,6 @@ function verifySignupInfo(req, res, next){
 module.exports = {
     asyncHandler,
     verifyToken,
-    verifyLoginInfo
+    verifyLoginInfo,
+    verifySignupInfo
 }

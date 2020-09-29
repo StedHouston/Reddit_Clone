@@ -34,11 +34,18 @@ function Signup(){
                 "firstName": firstName,
                 "lastName": lastName,
                 "password": password,
+                "confirmPassword": confirmPassword,
                 "userName": userName,
                 "email": email
             })
 
         })
+
+        if(!response.ok){
+            let result = await response.json()
+            setErrors(result.errors)
+            return;
+        }
         let result = await response.json()
         localStorage.setItem('token', result.token)
         if(result.token){
@@ -97,6 +104,7 @@ function Signup(){
                                 Signup
                             </button>
                         </p>
+                        {errors.map(error => <div className="error">{error}</div>)}
                     </div>
             </div>
              </>
