@@ -1,11 +1,11 @@
 .SubredditCard{
     border: solid grey 2px;
     height: fit-content;
-    width: 800px;
+    width: 500px;
     background-color: white;
     border-radius: 5px;
     margin-top: 50px;
-    margin-left: 561px;
+    /* margin-left: 561px; */
 }
 
 .SubredditCard__image{

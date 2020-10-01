@@ -40,7 +40,7 @@ function Signup(){
             })
 
         })
-
+        console.log(response)
         if(!response.ok){
             let result = await response.json()
             setErrors(result.errors)
@@ -58,7 +58,7 @@ function Signup(){
 
     return(
              <>
-             <div className="Form">
+             {/* <div className="Form">
                 <div className="field field__1">
                     <label className="label">Email</label>
                     <div className="control">
@@ -106,6 +106,52 @@ function Signup(){
                         </p>
                         {errors.map(error => <div className="error">{error}</div>)}
                     </div>
+            </div> */}
+            <div className='Form'>
+                <div class="field">
+                    <label class="label">Email</label>
+                    <div class="control">
+                        <input class="input" type="email" onChange={(e) => setEmail(e.target.value)} value={email} placeholder="johndoe@gmail.com"/>
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label">Username</label>
+                    <div class="control">
+                        <input class="input" type="text" onChange={(e) => setUserName(e.target.value)} value={userName}/>
+                    </div>
+                    <p class="help is-success">This username is available</p>
+                </div>
+                <div class="field">
+                    <label class="label">First name</label>
+                    <div class="control">
+                        <input class="input" type="text" onChange={(e) => setFirstName(e.target.value)} value={firstName} placeholder="John" value={firstName}/>
+                    </div>
+                    <p class="help is-danger">This email is invalid</p>
+                </div>
+                <div class="field">
+                    <label class="label">Last name</label>
+                    <div class="control">
+                        <input className="input" type="text" onChange={(e) => setLastName(e.target.value)} value={lastName} placeholder="Doe"/>
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label">Password</label>
+                    <div class="control">
+                        <input class="input" type="password" onChange={(e) => setPassword(e.target.value)} value={password}/>
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label">Confirm Password</label>
+                    <div class="control">
+                        <input class="input" type="password" onChange={(e) => setConfirmPassword(e.target.value)} value={confirmPassword}/>
+                    </div>
+                </div>
+                <div class="field is-grouped">
+                    <div class="control">
+                        <button class="button is-link" onClick={handleSubmit}>Signup</button>
+                    </div>
+                </div>
+                {errors ? errors.map(error => <div className="error">{error}</div>) : <div></div>}
             </div>
              </>
 

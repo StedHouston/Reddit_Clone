@@ -1,8 +1,8 @@
 .AboutCard{
     height: 450px;
-    width: 300px;
+    width: 25%;
     border: black solid 2px;
-    background-color: #EFEFED;
+    background-color: white;
 }
 
 .AboutCard__Header{

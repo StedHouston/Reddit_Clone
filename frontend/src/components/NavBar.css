@@ -1,8 +1,9 @@
 .NavBar{
     display: flex;
+    justify-content: space-between;
     color: pink;
     height: 60px;
-    width: 100%;
+    width: 125%;
     border-bottom: solid black 2px;
     align-items: center;
     position: fixed;
@@ -16,9 +17,9 @@
 .NavBar__icon{
     height: 60px;
     width: 100px;
-    margin-right: 710px;
+    /* margin-right: 710px;
     margin-left: 20px;
-    margin-top: 9px;
+    margin-top: 9px; */
 }
 
 .NavBar__search{
@@ -31,19 +32,21 @@
 }
 
 .NavBar__searchButton{
-    margin-right: 350px;
+    /* margin-right: 350px; */
     margin-top: 9px;
 
 }
 
 .signupButton{
-    margin-left: 5px;
+    margin-top: 3px;
+    /* margin-left: 5px; */
 }
 
 .loginButton{
-    margin-left: 200px;
+    margin-top: 3px;
+    margin-right: 5px;
 }
 
 .logoutButton{
-    margin-left: 300px;
+    /* margin-left: 300px; */
 }

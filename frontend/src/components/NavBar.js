@@ -57,14 +57,20 @@ function NavBar() {
 
                 {loggedIn ? <p className="control">
                                 <button onClick={handleLogout} className="button is-danger logoutButton">Log Out</button>
+                                <a href="https://github.com/StedHouston">
+                                    <img className="NavBar__github" src="/images/GitHub-icon.png" alt=''/>
+                                </a>
                             </p> : <p className="control sideButtons">
                                         <button onClick={handleLogin} className="button is-link loginButton">Log In</button>
                                         <button onClick={signUp} className="button is-link signupButton">Signup</button>
+                                        <a href="https://github.com/StedHouston">
+                                            <img className="NavBar__github" src="/images/GitHub-icon.png" alt=''/>
+                                        </a>
                                     </p>}
                 <div>
-                    <a href="https://github.com/StedHouston">
+                    {/* <a href="https://github.com/StedHouston">
                         <img className="NavBar__github" src="/images/GitHub-icon.png" alt=''/>
-                    </a>
+                    </a> */}
                 </div>
             </div>
         )

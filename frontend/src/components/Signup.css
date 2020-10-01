@@ -1,7 +1,10 @@
 .Form{
     border: solid black 2px;
     margin: 0 auto;
-    width: 300px;
+    padding: 15px;
+    /* width: 300px; */
+    height: 100%;
+    width: 40%;
     margin-top: 200px;
     border-radius: 5px;
 }

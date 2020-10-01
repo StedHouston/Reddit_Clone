@@ -9,8 +9,8 @@ const { User } = require('../models')
 
 
 router.post('/', verifySignupInfo, asyncHandler(async (req, res) => {
-    if(req.errors){
-        res.status(400).json({'errors': req.errors})
+    if(req.errors.length > 0){
+       return res.status(400).json({'errors': req.errors})
     }
     const { firstName, lastName, email, password, userName } = req.body;
 
@@ -21,7 +21,7 @@ router.post('/', verifySignupInfo, asyncHandler(async (req, res) => {
         }
     })
     if(name.length){
-        res.send({'errors': 'Username already taken'})
+        return res.status(400).json({'errors': ['Username already taken']})
     }
 
     //check if account already exits with email
@@ -31,7 +31,7 @@ router.post('/', verifySignupInfo, asyncHandler(async (req, res) => {
         }
     })
     if(checkEmail.length){
-        res.json({'errors': 'Email is already registered'})
+        return res.status(400).json({'errors': ['Email is already registered']})
     }
 
 
@@ -55,7 +55,8 @@ router.post('/', verifySignupInfo, asyncHandler(async (req, res) => {
                     email: email
                 }
             })
-
+            console.log("----------   " + tempUser)
+            console.log(tempUser)
             let tokenUser = {
                 userName: userName,
                 id: tempUser.dataValues.id,

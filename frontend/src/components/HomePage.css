@@ -1,4 +1,7 @@
 .subredditCards{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     padding-top: 60px;
     height: 100%;
 }

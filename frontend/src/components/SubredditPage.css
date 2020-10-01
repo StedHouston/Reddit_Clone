@@ -1,16 +1,19 @@
 .SubredditPage__Body{
     display: flex;
-    justify-content: space-between;
-    margin-left: 400px;
+    justify-content: space-around;
+    background-color: rgb(218, 224, 230)
+    /* margin-left: 400px; */
 }
 
 
 .SubredditPage__Posts{
     display: flex;
     flex-direction: column;
+    align-items: flex-end;
+    width: 50%;
 }
 
 .SubredditPage__Button{
-    margin-left: 720px;
     margin-bottom: 10px;
+    width: 100%;
 }

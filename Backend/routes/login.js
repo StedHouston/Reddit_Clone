@@ -11,7 +11,7 @@ const router = express.Router()
 //User login
 router.post('/', verifyLoginInfo, asyncHandler(async  (req, res) => {
     if(req.errors){
-        res.status(400).json({'errors': req.errors})
+        return res.status(400).json({'errors': req.errors})
     }
     const { email, password } = req.body;
 
