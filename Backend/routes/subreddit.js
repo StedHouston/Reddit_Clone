@@ -54,8 +54,8 @@ router.get('/:id/posts/:id2', asyncHandler(async (req, res) => {
 }))
 
 //retrieves all comments for a post     GET     /subreddits/id/posts/id2/comments
-router.get('/:id/posts/id/comments', asyncHandler(async (req, res) => {
-    const postId = parseInt(req.params.id, 10)
+router.get('/:id/posts/:id2/comments', asyncHandler(async (req, res) => {
+    const postId = parseInt(req.params.id2, 10)
     const result = await Comment.findAll({
         where: {
             postId

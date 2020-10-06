@@ -4,6 +4,7 @@ import SubredditHeader from './components/SubredditHeader';
 import HomePage from './components/HomePage';
 import SubredditPage from './components/SubredditPage';
 import CreatePost from './components/CreatePost';
+import PostPage from './components/PostPage';
 import './App.css';
 import { useSelector } from 'react-redux';
 import { BrowserRouter, Route, Link, Switch } from 'react-router-dom';
@@ -27,6 +28,10 @@ function App(props) {
             <Route path={`/subreddits/:id/create_post`} exact>
               <NavBar />
               <CreatePost/>
+            </Route>
+            <Route path={`/subreddits/:id/post/:id`} exact>
+              <NavBar />
+              <PostPage/>
             </Route>
             <Route path="/subreddits/:id">
               <NavBar />

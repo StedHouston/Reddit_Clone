@@ -52,7 +52,7 @@ function SubredditPage() {
                     <button className="button is-link SubredditPage__Button" onClick={() => history.push(`/subreddits/${id}/create_post`)} type="button">Create a post </button>
                     </p>
                     {Posts.map(Post =>
-                        <PostCard key={Post.id} Post={Post}/>
+                        <PostCard key={Post.id} Post={Post} subreddit={subreddit}/>
                     )}
                 </div>
                 <AboutCommunity subreddit={subreddit}/>
