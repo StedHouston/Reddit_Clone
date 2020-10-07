@@ -1,5 +1,39 @@
 .PostPage{
     border: 2px solid black;
-    width: 80%;
-    padding: auto auto;
+    background-color: rgb(46,47,48);
+    height: 100vh;
+    width: 100%;
+}
+
+.PostPage__Container{
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(218,224,230);
+    height: 100%;
+    width: 88%;
+    margin: auto;
+    margin-top: 100px;
+
+}
+
+.PostPage__PostandComments{
+    width: 60%;
+}
+
+.PostPage__Post{
+    background-color: white;
+    height: 100%;
+    width: 100%;
+    border-radius: 5px;
+    margin-top: 33px;
+    margin-left: 33px;
+}
+
+.PostPage__About{
+    background-color: white;
+    height: fit-content;
+    width: 30%;
+    border-radius: 5px;
+    margin-top: 33px;
+    margin-right: 33px;
 }
