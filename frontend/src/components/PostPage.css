@@ -1,7 +1,7 @@
 .PostPage{
     border: 2px solid black;
     background-color: rgb(46,47,48);
-    height: 100vh;
+    height: 100%;
     width: 100%;
 }
 
@@ -17,7 +17,7 @@
 }
 
 .PostPage__PostandComments{
-    width: 60%;
+    width: 64%;
 }
 
 .PostPage__Post{
@@ -27,12 +27,13 @@
     border-radius: 5px;
     margin-top: 33px;
     margin-left: 33px;
+    padding: 10px 40px 40px 40px;
 }
 
 .PostPage__About{
     background-color: white;
     height: fit-content;
-    width: 30%;
+    width: 28%;
     border-radius: 5px;
     margin-top: 33px;
     margin-right: 33px;
