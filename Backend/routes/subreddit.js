@@ -104,7 +104,7 @@ router.post('/:id/create_post', verifyToken, asyncHandler(async (req, res) => {
 }))
 
 //retrieves information for a single subreddit and all posts
-router.get('/:id/withPosts', asyncHandler(async (req, res) => {
+router.get('/:id', asyncHandler(async (req, res) => {
     const subredditId = parseInt(req.params.id);
     const result = await Subreddit.findAll({
         where: {

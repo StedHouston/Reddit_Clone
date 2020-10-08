@@ -12,8 +12,8 @@ function Comment(){
 
     return (
         <div className="Comment">
-            <div>u/Stedman Houston</div>
-            <div>
+            <div style={{color: 'rgb(152,155,157)', marginBottom: '10px'}}>u/Stedman Houston</div>
+            <div style={{fontSize: '15px'}}>
             I like Johnny Litecoin and Rebecca White
             (I_make_lemonade). Johnny works on setting
             up crypto commerce for actual merchants and

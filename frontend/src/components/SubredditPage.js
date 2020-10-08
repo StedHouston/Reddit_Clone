@@ -18,7 +18,8 @@ function SubredditPage() {
 
     useEffect(() => {
         async function fetchData(){
-            let response = await fetch(`http://localhost:8080/subreddits/${id}/withPosts`, {
+            //retreives subreddit information
+            let response = await fetch(`http://localhost:8080/subreddits/${id}`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -26,8 +27,10 @@ function SubredditPage() {
 
             })
             let results = await response.json()
+            console.log(results)
             setSubreddit(results[0])
 
+            //retreives posts for subreddit
             let response2 = await fetch(`http://localhost:8080/subreddits/${id}/posts`, {
                 method: 'GET',
                 headers: {
@@ -36,6 +39,7 @@ function SubredditPage() {
 
             })
             let retreivedPosts = await response2.json()
+            console.log(retreivedPosts)
             setPosts(retreivedPosts)
         }
         fetchData();
