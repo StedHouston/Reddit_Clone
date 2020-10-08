@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { subredditInfoWithPosts } from '../Actions/subreddits';
 import PostPage from './PostPage';
 import './PostCard.css';
 
@@ -10,6 +12,8 @@ function PostCard(props) {
     let subreddit = props.subreddit;
     const [firstName, setFirstName] = useState('')
     const [lastName, setLastName] = useState('')
+
+    let dispatch = useDispatch();
 
     useEffect(() => {
         async function fetchData(){
@@ -22,7 +26,6 @@ function PostCard(props) {
 
             })
             let fullname = await response.json()
-            console.log(fullname)
             setFirstName(fullname.firstName)
             setLastName(fullname.lastName)
 
@@ -32,6 +35,11 @@ function PostCard(props) {
 
 
     },[])
+
+    async function goToPosts(){
+        dispatch(subredditInfoWithPosts(subreddit, Post))
+
+    }
 
     return (
 
@@ -45,7 +53,7 @@ function PostCard(props) {
                             Posted by u/{firstName} {lastName}
                         </div>
                         <Link to={{
-                            pathname:`/subreddits/${Post.subredditId}/post/${Post.id}`}}>
+                            pathname:`/subreddits/${Post.subredditId}/post/${Post.id}`}} onClick={goToPosts}>
                             <div className="PostCard__Body--title">
                                 {Post.title}
                             </div>

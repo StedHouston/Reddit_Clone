@@ -30,8 +30,10 @@ function verifyLoginInfo(req, res, next){
     if(!password){
         errors.push('Please enter a password')
     }
+    if(errors.length > 0){
+        req.errors = errors;
+    }
 
-    req.errors = errors;
     next()
 }
 

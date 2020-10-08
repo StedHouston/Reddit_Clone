@@ -1,9 +1,9 @@
 const subredditAndPostsReducer = (state = {}, action) => {
     switch(action.type){
-        case 'SUBREDDIT_WITH_POSTS':
+        case 'SUBREDDIT_WITH_POST':
             return {
                 subreddit: action.subreddit,
-                Posts: action.posts,
+                post: action.post,
             };
         default:
             return state;

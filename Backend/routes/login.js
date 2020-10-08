@@ -25,7 +25,6 @@ router.post('/', verifyLoginInfo, asyncHandler(async  (req, res) => {
 
     bcrypt.compare(password, loginUser.dataValues.password, (error, result) => {
 
-        console.log(result)
         if(result){
             const user = {
                 id: loginUser.dataValues.id,

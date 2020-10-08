@@ -1,5 +1,5 @@
 const SUBREDDIT_LIST = 'SUBREDDIT_LIST';
-const SUBREDDIT_WITH_POSTS = 'SUBREDDIT_WITH_POSTS';
+const SUBREDDIT_WITH_POST = 'SUBREDDIT_WITH_POST';
 
 
 //fetch all subreddits
@@ -24,11 +24,11 @@ const subredditsList = (subreddits) => {
 }
 
 //action to retrieve subreddit info and posts associated
-const subredditInfoWithPosts = (subreddit, posts) => {
+const subredditInfoWithPosts = (subreddit, post) => {
     return {
-        type: SUBREDDIT_WITH_POSTS,
+        type: SUBREDDIT_WITH_POST,
         subreddit: subreddit,
-        posts: posts,
+        post: post,
     }
 }
 
@@ -68,4 +68,5 @@ module.exports = {
     fetchSubreddits,
     fetchSubreddit,
     fetchSubredditAndPosts,
+    subredditInfoWithPosts
 }

@@ -41,6 +41,7 @@ function LoginPage(){
             return;
         }
         let result = await response.json()
+        console.log(result)
         localStorage.setItem('token', result.token)
         if(result.token){
             dispatch(LoggedInAction())
