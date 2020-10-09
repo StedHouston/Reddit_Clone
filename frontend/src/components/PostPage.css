@@ -38,3 +38,8 @@
     margin-top: 33px;
     margin-right: 33px;
 }
+
+.error{
+    color: red;
+    font-weight: bold;
+}

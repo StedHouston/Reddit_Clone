@@ -8,6 +8,7 @@ const subredditRouter = require('./routes/subreddit')
 const loginRouter = require('./routes/login')
 const signupRouter = require('./routes/signup')
 const userRouter = require('./routes/user')
+const commentRouter = require('./routes/comment')
 const { asyncHandler } = require('./utils')
 const { User } = require('./models')
 require('dotenv').config()
@@ -25,6 +26,7 @@ app.use('/subreddits', subredditRouter)
 app.use('/login', loginRouter)
 app.use('/signup', signupRouter)
 app.use('/users', userRouter)
+app.use('/comments', commentRouter)
 
 
 app.get('/', asyncHandler(async (req, res) => {

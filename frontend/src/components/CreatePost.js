@@ -35,16 +35,15 @@ function CreatePost(){
 
         if(token !== null){
             let response = await fetch(`http://localhost:8080/subreddits/${id}/create_post`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${localStorage.getItem('token')}`
-            },
-            body: JSON.stringify({
-                "title": title,
-                "content": content
-            })
-
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${localStorage.getItem('token')}`
+                },
+                body: JSON.stringify({
+                    "title": title,
+                    "content": content
+                })
             })
             setErrors([])
             let results = await response.json()

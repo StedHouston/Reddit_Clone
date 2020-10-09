@@ -59,7 +59,10 @@ router.get('/:id/posts/:id2/comments', asyncHandler(async (req, res) => {
     const result = await Comment.findAll({
         where: {
             postId
-        }
+        },
+        order: [
+            ['id', 'DESC']
+        ],
     })
     res.json(result)
 }))
