@@ -1,28 +1,45 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './Comment.css'
 
 
 
 
-function Comment(){
+function Comment(props){
+
+    let { comment } = props;
+
+    const [firstName, setFirstName] = useState('')
+    const [lastName, setLastName] = useState('')
+
+    useEffect(() => {
+        async function fetchData(){
+
+            //fetch user name of author of post
+            let response = await fetch(`http://localhost:8080/users/${comment.userId}`, {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                }
+
+            })
+            let fullname = await response.json()
+
+            setFirstName(fullname.firstName)
+            setLastName(fullname.lastName)
 
 
 
+        }
+        fetchData();
 
+
+    },[])
 
     return (
         <div className="Comment">
-            <div style={{color: 'rgb(152,155,157)', marginBottom: '10px'}}>u/Stedman Houston</div>
+            <div style={{color: 'rgb(152,155,157)', marginBottom: '10px'}}>u/{firstName} {lastName}</div>
             <div style={{fontSize: '15px'}}>
-            I like Johnny Litecoin and Rebecca White
-            (I_make_lemonade). Johnny works on setting
-            up crypto commerce for actual merchants and
-            is a big advicate for LTC. Rebecca runs our
-            local Pittsburgh meetup and went sort of viral
-            with a video on using Litecoin at a local food
-            truck. But...the more normal folks dont get as
-            much attention cause we as humans tend to watch
-            flashy dumpster fires instead.
+            {comment.content}
             </div>
         </div>
     )
