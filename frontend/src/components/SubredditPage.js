@@ -17,6 +17,7 @@ function SubredditPage() {
     const [Posts, setPosts] = useState([]);
 
     useEffect(() => {
+        window.scrollTo(0, 0)
         async function fetchData(){
             //retreives subreddit information
             let response = await fetch(`http://localhost:8080/subreddits/${id}`, {
@@ -52,8 +53,8 @@ function SubredditPage() {
             <SubredditHeader subreddit={subreddit}/>
             <div className="SubredditPage__Body">
                 <div className="SubredditPage__Posts">
-                    <p className="control" style={{width: "80%", marginTop: '15px'}}>
-                    <button className="button is-link SubredditPage__Button" onClick={() => history.push(`/subreddits/${id}/create_post`)} type="button">Create a post </button>
+                    <p className="control" style={{width: "100%", marginTop: '15px'}}>
+                        <button className="SubredditPage__Button button is-link" onClick={() => history.push(`/subreddits/${id}/create_post`)} type="button">Create a post </button>
                     </p>
                     {Posts.map(Post =>
                         <PostCard key={Post.id} Post={Post} subreddit={subreddit}/>
@@ -61,8 +62,6 @@ function SubredditPage() {
                 </div>
                 <AboutCommunity subreddit={subreddit}/>
             </div>
-
-
         </>
     )
 

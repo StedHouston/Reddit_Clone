@@ -10,7 +10,6 @@ const signupRouter = require('./routes/signup')
 const userRouter = require('./routes/user')
 const commentRouter = require('./routes/comment')
 const { asyncHandler } = require('./utils')
-const { User } = require('./models')
 require('dotenv').config()
 
 
@@ -20,6 +19,8 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(cookieParser())
 app.use(express.json())
 app.use(cors())
+app.use(express.static(path.join(__dirname, 'build')))
+
 
 //Routes
 app.use('/subreddits', subredditRouter)
@@ -28,13 +29,9 @@ app.use('/signup', signupRouter)
 app.use('/users', userRouter)
 app.use('/comments', commentRouter)
 
-
-app.get('/', asyncHandler(async (req, res) => {
-    let result = await User.findByPk(1);
-    console.log(result)
-    res.send('hello world')
-
-}));
+app.get('/*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'build', 'index.html'))
+})
 
 
 

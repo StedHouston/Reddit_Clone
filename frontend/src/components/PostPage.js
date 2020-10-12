@@ -21,6 +21,7 @@ function PostPage(){
 
 
     useEffect(() => {
+        window.scrollTo(0, 0)
         async function fetchData(){
 
             //fetch user name of author of post

@@ -1,6 +1,6 @@
 .Subreddit{
     padding-top: 60px;
-    background-color: rgb(218, 224, 230)
+    background-color: rgb(218, 224, 230);
 }
 
 
@@ -11,7 +11,7 @@
 
 .Subreddit__title{
     display: flex;
-    margin-left: 400px;
+    margin-left: 100px;
 }
 
 .Subreddit__title--icon{

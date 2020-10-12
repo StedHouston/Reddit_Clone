@@ -16,4 +16,5 @@
 .SubredditPage__Button{
     margin-bottom: 10px;
     width: 100%;
+    align-self: center;
 }

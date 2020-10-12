@@ -3,22 +3,25 @@
     border: solid grey 1px;
     border-radius: 5px;
     height: fit-content;
-    width: 80%;
+    width: 100%;
     /* background-color: #EFEFED; */
     background-color: white;
     margin-top: 20px;
+    padding-top: 10px;
+    padding-left: 20px;
+    margin-bottom: 8px;
 }
 
 .PostCard__Body{
     background-color: white;
 }
 
-.PostCard__leftPanel{
-    /* background-color: #EFEFED; */
+/* .PostCard__leftPanel{
+    background-color: #EFEFED;
     background-color: white;
     height: 240px;
     width: 50px;
-}
+} */
 
 .PostCard__Body--text{
     /* background-color: #EFEFED; */
