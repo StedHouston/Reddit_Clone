@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken')
-const { User } = require('../Backend/models')
+const { User } = require('./models')
 
 const asyncHandler = (handler) => (req, res, next) => handler(req, res, next).catch(next);
 

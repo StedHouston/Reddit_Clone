@@ -10,6 +10,7 @@ const signupRouter = require('./routes/signup')
 const userRouter = require('./routes/user')
 const commentRouter = require('./routes/comment')
 const { asyncHandler } = require('./utils')
+const path = require('path')
 require('dotenv').config()
 
 
@@ -19,7 +20,7 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(cookieParser())
 app.use(express.json())
 app.use(cors())
-app.use(express.static(path.join(__dirname, 'build')))
+app.use(express.static(path.join(__dirname, 'frontend/build')))
 
 
 //Routes
@@ -29,10 +30,15 @@ app.use('/signup', signupRouter)
 app.use('/users', userRouter)
 app.use('/comments', commentRouter)
 
-app.get('/*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'build', 'index.html'))
-})
+
+//serve static assets if in production
+if(process.env.NODE_ENV === 'production'){
+    app.get('*', (req, res) => {
+        res.sendFile(path.resolve(__dirname, 'frontend', 'build', 'index.html'))
+    })
+}
 
 
+const PORT = process.env.PORT || 8080
 
-app.listen(8080, () => console.log('Listening on port: 8080'))
+app.listen(PORT)
