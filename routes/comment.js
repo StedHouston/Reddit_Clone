@@ -32,4 +32,29 @@ router.post('/create_comment', verifyToken, asyncHandler(async (req, res) => {
     })
 }))
 
+router.post('/delete_comment', verifyToken, asyncHandler(async (req, res) => {
+    let { commentUserId, commentId } = req.body;
+    jwt.verify(req.token, process.env.JWT_SECRET, async (err, authData) => {
+        if(authData.user.id !== commentUserId){
+            return res.send({'msg': 'user id does not match the user id on this comment'})
+        }
+        try{
+            if(err){
+                res.sendStatus(403)
+            }else{
+                await Comment.destroy({
+                    where: {
+                        id: commentId
+                    }
+                })
+
+                res.status(200).json({'msg': 'success'})
+            }
+        }catch{
+            res.status(400)
+        }
+
+    })
+}))
+
 module.exports = router;

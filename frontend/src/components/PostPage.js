@@ -17,7 +17,7 @@ function PostPage(){
     const [comments, setComments] = useState([])
     const [error, setError] = useState('')
 
-    const loggedIn = useSelector(state => state.LoggedInReducer.loggedIn)
+    const { loggedIn, id } = useSelector(state => state.LoggedInReducer)
 
 
     useEffect(() => {
@@ -91,6 +91,37 @@ function PostPage(){
             setNewComment('')
     }
 
+    async function deleteComment(commentUserId, commentId, subredditId, postId) {
+        let response = await fetch(`http://localhost:8080/comments/delete_comment`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${localStorage.getItem('token')}`
+                },
+                body: JSON.stringify({
+                    "commentUserId": commentUserId,
+                    "commentId": commentId
+                })
+        })
+
+        let result = await response.json()
+        console.log(result)
+
+        let response2 = await fetch(`http://localhost:8080/subreddits/${subredditId}/posts/${postId}/comments`, {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                }
+
+            })
+            let allComments = await response2.json()
+
+            //set comments and author of post in state
+            setComments(allComments)
+
+    }
+
+
     return (
         <>
             <div className="PostPage">
@@ -110,7 +141,7 @@ function PostPage(){
                             <textarea style={{height: '200px', width:'100%', fontSize: '20px', marginBottom: '10px', padding: '15px'}} onChange={(e) => setNewComment(e.target.value)} value={newComment}></textarea>
                             {error ? <div className="error">{error}</div> : <div></div>}
                             <button className="button is-info" onClick={handleSubmit}>Comment</button>
-                            {comments ? comments.map(comment => <Comment key={comment.id}comment={comment}/>) : <div></div>}
+                            {comments ? comments.map(comment => <Comment key={comment.id} comment={comment} id={id} subredditId={subreddit.id} postId={post.id} deleteComment={deleteComment}/>) : <div></div>}
                         </div>
                     </div>
                     <div className="PostPage__About">

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import { useParams, useHistory } from 'react-router-dom';
 import './CreatePost.css';
 
@@ -13,22 +14,30 @@ function CreatePost(){
     const { id } = useParams()
     const history = useHistory()
     // const [id, setId] = useState(id)
+    const { loggedIn } = useSelector(state => state.LoggedInReducer)
 
 
     async function handleSubmit() {
         setErrors([])
+        if(!loggedIn){
+            setErrors(['Please signin to post'])
+            return;
+        }
         if(!title){
             console.log("inside title")
             setErrors(errors => [...errors, 'A title is required'])
+            return;
         }
         if(!content){
             console.log("inside content")
             setErrors(errors => [...errors, 'Content is required'])
+            return;
         }
         if(!title || !content){
             console.log("inside return")
             return;
         }
+
 
         let token = localStorage.getItem('token')
         console.log(token)

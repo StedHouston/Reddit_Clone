@@ -37,10 +37,10 @@ router.post('/', verifyLoginInfo, asyncHandler(async  (req, res) => {
             jwt.sign({user: user}, process.env.JWT_SECRET, (error, token) => {
                 res.json({
                     token: token,
+                    id: loginUser.id,
                     expiresIn: '7d'
                 })
             })
-            console.log("success")
         }else{
             res.status(400).send();
         }

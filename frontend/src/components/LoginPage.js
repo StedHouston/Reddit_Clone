@@ -44,7 +44,7 @@ function LoginPage(){
         console.log(result)
         localStorage.setItem('token', result.token)
         if(result.token){
-            dispatch(LoggedInAction())
+            dispatch(LoggedInAction(result.id))
         }
         history.push(`/`)
 
