@@ -7,6 +7,20 @@
     margin-bottom: 25px;
 }
 
+.Comment__commentandbutton{
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+}
+
 .delete-btn{
-    height: 20px;
+    background-color: rgb(241,70,104);
+    border: white;
+    color: white;
+    height: 25px;
+    width: 55px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    cursor: pointer;
 }

@@ -4,7 +4,7 @@ import './SubredditPage.css';
 import SubredditHeader from './SubredditHeader';
 import PostCard from './PostCard';
 import AboutCommunity from './AboutCommunity';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import fetchSubredditAndPosts from '../Actions/subreddits';
 
 
@@ -15,6 +15,7 @@ function SubredditPage() {
     let history = useHistory();
     const [subreddit, setSubreddit] = useState({});
     const [Posts, setPosts] = useState([]);
+    const { id : userId } = useSelector(state => state.LoggedInReducer)
 
     useEffect(() => {
         window.scrollTo(0, 0)
@@ -48,6 +49,32 @@ function SubredditPage() {
 
     },[])
 
+    async function deletePost(subredditId, userId, postId){
+        let response = await fetch(`http://localhost:8080/subreddits/${subredditId}/delete_post`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${localStorage.getItem('token')}`
+                },
+                body: JSON.stringify({
+                    "postId": postId,
+                    "userId": userId
+                })
+
+        })
+        let results = await response.json()
+        console.log(results)
+        let response2 = await fetch(`http://localhost:8080/subreddits/${id}/posts`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            }
+
+        })
+        let retreivedPosts = await response2.json()
+        setPosts(retreivedPosts)
+    }
+
     return (
         <>
             <SubredditHeader subreddit={subreddit}/>
@@ -57,7 +84,7 @@ function SubredditPage() {
                         <button className="SubredditPage__Button button is-link" onClick={() => history.push(`/subreddits/${id}/create_post`)} type="button">Create a post </button>
                     </p>
                     {Posts.map(Post =>
-                        <PostCard key={Post.id} Post={Post} subreddit={subreddit}/>
+                        <PostCard key={Post.id} Post={Post} subreddit={subreddit} userId={userId} deletePost={deletePost}/>
                     )}
                 </div>
                 <AboutCommunity subreddit={subreddit}/>

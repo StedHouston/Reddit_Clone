@@ -8,10 +8,11 @@ import './PostCard.css';
 
 function PostCard(props) {
 
-    let Post = props.Post;
+    let { Post, userId, deletePost } = props;
     let subreddit = props.subreddit;
     const [firstName, setFirstName] = useState('')
     const [lastName, setLastName] = useState('')
+    const [numComments, setNumComments] = useState(0)
 
     let dispatch = useDispatch();
 
@@ -26,8 +27,21 @@ function PostCard(props) {
 
             })
             let fullname = await response.json()
+
+            let response2 = await fetch(`http://localhost:8080/subreddits/${subreddit.id}/posts/${Post.id}/comments`, {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                }
+
+            })
+            let comments = await response2.json()
+            console.log(comments)
+
+
             setFirstName(fullname.firstName)
             setLastName(fullname.lastName)
+            setNumComments(comments.length)
 
 
         }
@@ -62,7 +76,8 @@ function PostCard(props) {
                             {Post.content}
                         </div>
                         <div className="PostCard__Body--comments">
-                            20 Comments
+                            <div>{numComments} Comments</div>
+                            { userId === Post.userId ? <button className="PostPage__Button" onClick={()=> deletePost(subreddit.id, userId, Post.id)}>Delete</button> : <div></div>}
                         </div>
                     </div>
                 </div>

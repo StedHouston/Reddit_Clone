@@ -60,10 +60,12 @@ function Comment(props){
     return (
         <div className="Comment">
             <div style={{color: 'rgb(152,155,157)', marginBottom: '10px'}}>u/{firstName} {lastName}</div>
-            <div style={{fontSize: '15px'}}>
-            {comment.content}
+            <div className="Comment__commentandbutton">
+                <div style={{fontSize: '15px'}}>
+                {comment.content}
+                </div>
+                {id === comment.userId ? <button className="delete-btn button" onClick={() => deleteComment(comment.userId, comment.id, subredditId, postId )}>Delete</button> : <div></div>}
             </div>
-            {id === comment.userId ? <button className="delete-btn button is-info" onClick={() => deleteComment(comment.userId, comment.id, subredditId, postId )}>Comment</button> : <div></div>}
         </div>
     )
 

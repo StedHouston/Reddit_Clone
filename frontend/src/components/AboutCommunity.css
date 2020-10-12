@@ -3,6 +3,8 @@
     width: 25%;
     border: black solid 2px;
     background-color: white;
+    padding: 10px;
+    border-radius: 5px;
 }
 
 .AboutCard__Header{

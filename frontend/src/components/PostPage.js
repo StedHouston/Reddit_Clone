@@ -71,7 +71,6 @@ function PostPage(){
 
 
         let token = localStorage.getItem('token')
-        console.log(token)
 
 
             let response = await fetch(`http://localhost:8080/comments/create_comment`, {
@@ -105,7 +104,6 @@ function PostPage(){
         })
 
         let result = await response.json()
-        console.log(result)
 
         let response2 = await fetch(`http://localhost:8080/subreddits/${subredditId}/posts/${postId}/comments`, {
                 method: 'GET',
