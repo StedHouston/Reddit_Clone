@@ -3,7 +3,7 @@
     justify-content: space-between;
     color: pink;
     height: 60px;
-    width: 125%;
+    width: 100%;
     border-bottom: solid black 2px;
     align-items: center;
     position: fixed;
@@ -17,9 +17,7 @@
 .NavBar__icon{
     height: 60px;
     width: 100px;
-    /* margin-right: 710px;
-    margin-left: 20px;
-    margin-top: 9px; */
+    margin-top: 5px;
 }
 
 .NavBar__search{
@@ -29,6 +27,7 @@
 .NavBar__github{
     height: 43px;
     width: 43px;
+    margin-top: 2px;
 }
 
 .NavBar__searchButton{
@@ -48,5 +47,5 @@
 }
 
 .logoutButton{
-    /* margin-left: 300px; */
+    margin-top: 4px;
 }

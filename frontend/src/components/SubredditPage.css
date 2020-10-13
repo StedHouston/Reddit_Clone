@@ -1,7 +1,7 @@
 .SubredditPage__Body{
     display: flex;
     justify-content: space-around;
-    background-color: rgb(218, 224, 230)
+    background-color: rgb(218, 224, 230);
     /* margin-left: 400px; */
 }
 

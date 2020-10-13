@@ -67,11 +67,6 @@ function NavBar() {
                                             <img className="NavBar__github" src="/images/GitHub-icon.png" alt=''/>
                                         </a>
                                     </p>}
-                <div>
-                    {/* <a href="https://github.com/StedHouston">
-                        <img className="NavBar__github" src="/images/GitHub-icon.png" alt=''/>
-                    </a> */}
-                </div>
             </div>
         )
 

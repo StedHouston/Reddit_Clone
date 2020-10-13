@@ -7,7 +7,7 @@ function SubredditCards(props){
 
     return(
 
-        <div className="SubredditCard card-content">
+        <div className="SubredditCard card-content" id="SubredditCard">
             <div className="media">
                 <div className="media-left">
                     <figure className="SubredditCard__profileUrl">

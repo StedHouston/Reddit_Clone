@@ -76,7 +76,7 @@ function PostCard(props) {
                             {Post.content}
                         </div>
                         <div className="PostCard__Body--comments">
-                            <div>{numComments} Comments</div>
+                            <div style={{marginTop: '2px'}}>{numComments} Comments</div>
                             { userId === Post.userId ? <button className="PostPage__Button" onClick={()=> deletePost(subreddit.id, userId, Post.id)}>Delete</button> : <div></div>}
                         </div>
                     </div>

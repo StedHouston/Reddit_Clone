@@ -8,6 +8,10 @@
     /* margin-left: 561px; */
 }
 
+#SubredditCard{
+    background-color: white;
+}
+
 .SubredditCard__image{
     height: 50px;
 }
@@ -32,4 +36,18 @@
 
 .content{
     margin-top: 25px;
+    background-color: white;
+
+}
+
+.media{
+    background-color: white;
+}
+
+.media-left{
+    background-color: white;
+}
+
+.card-content{
+    background-color: white;
 }
