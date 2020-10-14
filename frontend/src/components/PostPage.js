@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import AboutCommunity from './AboutCommunity';
 import Comment from './Comment';
+import SubredditHeader from './SubredditHeader';
 import './PostPage.css';
 
 
@@ -59,6 +60,7 @@ function PostPage(){
     },[])
 
     async function handleSubmit() {
+        setError()
         if(!loggedIn){
             setError('Please login to comment')
             return;
@@ -122,13 +124,15 @@ function PostPage(){
 
     return (
         <>
+            {/* <SubredditHeader subreddit={subreddit}/> */}
             <div className="PostPage">
                 <div className="PostPage__Container">
                     <div className="PostPage__PostandComments">
                         <div className="PostPage__Post">
                             <div style={{color: 'rgb(152,155,157)', marginBottom: '10px'}}>r/{subreddit.title} Posted by u/{firstName} {lastName}</div>
                             <div style={{fontSize: '20px', fontWeight: 'bold', marginBottom: '15px'}}>{post.title}</div>
-                            <div style={{marginBottom: '10px'}}>{post.content}
+                            <div style={{marginBottom: '10px'}}>
+                                {post.content}
                             </div>
                             <div style={{color: 'rgb(135,138,140)', marginBottom: '15px'}}>
                                 {Object.keys(comments).length} comments
@@ -143,9 +147,6 @@ function PostPage(){
                         </div>
                     </div>
                     <AboutCommunity subreddit={subreddit}/>
-                    {/* <div className="PostPage__About">
-                        <AboutCommunity subreddit={subreddit}/>
-                    </div> */}
                 </div>
             </div>
         </>

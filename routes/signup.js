@@ -67,6 +67,7 @@ router.post('/', verifySignupInfo, asyncHandler(async (req, res) => {
             jwt.sign({user: tokenUser}, process.env.JWT_SECRET, (error, token) => {
                 res.json({
                     token: token,
+                    id: tokenUser.id,
                     expiresIn: '7d'
                 })
             })

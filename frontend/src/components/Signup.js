@@ -40,7 +40,6 @@ function Signup(){
             })
 
         })
-        console.log(response)
         if(!response.ok){
             let result = await response.json()
             setErrors(result.errors)
@@ -49,7 +48,7 @@ function Signup(){
         let result = await response.json()
         localStorage.setItem('token', result.token)
         if(result.token){
-            dispatch(LoggedInAction())
+            dispatch(LoggedInAction(result.id))
         }
         history.push(`/`)
 
@@ -119,14 +118,12 @@ function Signup(){
                     <div class="control">
                         <input class="input" type="text" onChange={(e) => setUserName(e.target.value)} value={userName}/>
                     </div>
-                    <p class="help is-success">This username is available</p>
                 </div>
                 <div class="field">
                     <label class="label">First name</label>
                     <div class="control">
                         <input class="input" type="text" onChange={(e) => setFirstName(e.target.value)} value={firstName} placeholder="John" value={firstName}/>
                     </div>
-                    <p class="help is-danger">This email is invalid</p>
                 </div>
                 <div class="field">
                     <label class="label">Last name</label>

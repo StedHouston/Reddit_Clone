@@ -1,12 +1,13 @@
 .Form{
     border: solid black 2px;
-    margin: 0 auto;
+    margin: auto;
     padding: 15px;
     /* width: 300px; */
     height: 100%;
     width: 40%;
-    margin-top: 200px;
+    margin-top: 150px;
     border-radius: 5px;
+    margin-bottom: 10px;
 }
 
 .field__2{

@@ -52,8 +52,7 @@ function LoginPage(){
 
 
     return(
-             <>
-             <div style={{height: '100vh', backgroundColor: 'lightgrey'}}>
+             <div className="LoginPage">
                 <div className="Form">
                     <div className="field field__1">
                         <label className="label">Email</label>
@@ -61,23 +60,20 @@ function LoginPage(){
                             <input className="input" type="email" onChange={(e) => setEmail(e.target.value)} value={email} placeholder="johnDoe@gmail.com "></input>
                         </div>
                     </div>
-
-                        <div className="field field__2">
-                            <label className="label">Password</label>
-                            <div className="control">
-                                <input className="input" type="password" onChange={(e) => setPassword(e.target.value)} value={password}></input>
-                            </div>
-                            <div className="control">
-                                {errors.map(error => <div style={{color: 'red'}} key={error}>{error}</div>)}
-                                <button onClick={handleSubmit} className="button is-link">
-                                    Login
-                                </button>
-                            </div>
+                    <div className="field field__2">
+                        <label className="label">Password</label>
+                        <div className="control">
+                            <input className="input" type="password" onChange={(e) => setPassword(e.target.value)} value={password}></input>
                         </div>
+                        <div className="control">
+                            {errors.map(error => <div style={{color: 'red'}} key={error}>{error}</div>)}
+                            <button onClick={handleSubmit} className="LoginButton button is-link">
+                                Login
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
-             </>
-
   )
 }
 
