@@ -142,10 +142,10 @@ function PostPage(){
                             {comments ? comments.map(comment => <Comment key={comment.id} comment={comment} id={id} subredditId={subreddit.id} postId={post.id} deleteComment={deleteComment}/>) : <div></div>}
                         </div>
                     </div>
-                    <div className="PostPage__About">
-                        r/Bitcoin
-                        <div>For discussion about Litecoin, the leading cryptocurrency derived from Bitcoin. Litecoin is developed with a focus on speed, efficiency, and wider initial coin distribution through the use of scrypt-based mining.</div>
-                    </div>
+                    <AboutCommunity subreddit={subreddit}/>
+                    {/* <div className="PostPage__About">
+                        <AboutCommunity subreddit={subreddit}/>
+                    </div> */}
                 </div>
             </div>
         </>

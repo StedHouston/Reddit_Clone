@@ -5,7 +5,7 @@ import './AboutCommunity.css';
 
 function AboutCommunity(props) {
 
-    let subreddit = props.subreddit;
+    let { subreddit } = props;
 
 
     return(

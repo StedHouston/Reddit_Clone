@@ -38,31 +38,12 @@ function Comment(props){
 
     },[])
 
-    // async function deleteComment() {
-    //     let response = await fetch(`http://localhost:8080/comments/delete_comment`, {
-    //             method: 'POST',
-    //             headers: {
-    //                 'Content-Type': 'application/json',
-    //                 'Authorization': `Bearer ${localStorage.getItem('token')}`
-    //             },
-    //             body: JSON.stringify({
-    //                 "commentUserId": comment.userId,
-    //                 "commentId": comment.id
-    //             })
-    //     })
-
-    //     let result = await response.json()
-    //     console.log(result)
-    //     history.goBack()
-
-    // }
-
     return (
         <div className="Comment">
             <div style={{color: 'rgb(152,155,157)', marginBottom: '10px'}}>u/{firstName} {lastName}</div>
             <div className="Comment__commentandbutton">
                 <div style={{fontSize: '15px'}}>
-                {comment.content}
+                    {comment.content}
                 </div>
                 {id === comment.userId ? <button className="delete-btn button" onClick={() => deleteComment(comment.userId, comment.id, subredditId, postId )}>Delete</button> : <div></div>}
             </div>

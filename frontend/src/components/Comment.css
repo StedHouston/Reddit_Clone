@@ -1,10 +1,12 @@
 .Comment{
     height: fit-content;
     width: 100%;
-    border: 2px solid pink;
+    border-left: 1px solid grey;
+    border-right: 1px solid grey;
     background-color: white;
     /* border-left: 2px lightgrey solid; */
-    margin-bottom: 25px;
+    padding-left: 10px;
+    margin-top: 25px;
 }
 
 .Comment__commentandbutton{

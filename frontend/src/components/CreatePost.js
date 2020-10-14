@@ -23,17 +23,14 @@ function CreatePost(){
             return;
         }
         if(!title){
-            console.log("inside title")
             setErrors(errors => [...errors, 'A title is required'])
             return;
         }
         if(!content){
-            console.log("inside content")
             setErrors(errors => [...errors, 'Content is required'])
             return;
         }
         if(!title || !content){
-            console.log("inside return")
             return;
         }
 
@@ -82,14 +79,14 @@ function CreatePost(){
                 <div className="field">
                     <label className="label">Title</label>
                     <div class="control">
-                        <input class="input" type="text" placeholder="Title"/>
+                        <input class="input" type="text" placeholder="Title" value={title} onChange={(e) => setTitle(e.target.value)}/>
                     </div>
                 </div>
                 <div className="field-body">
                     <div class="field" style={{width: '350px'}}>
                         <label class="label">Content</label>
                         <div class="control" style={{width: '100%'}}>
-                            <textarea style={{width: '100%'}} class="textarea" placeholder="Text"/>
+                            <textarea style={{width: '100%'}} class="textarea" placeholder="Text" value={content} onChange={(e) => setContent(e.target.value)}/>
                         </div>
                     </div>
                 </div>
