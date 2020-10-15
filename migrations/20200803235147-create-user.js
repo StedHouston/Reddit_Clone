@@ -33,7 +33,7 @@ module.exports = {
       },
       profilePictureUrl: {
         type: Sequelize.STRING(1024),
-        allowNull: false,
+        allowNull: true,
       },
       createdAt: {
         allowNull: false,

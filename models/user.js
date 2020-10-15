@@ -1,4 +1,5 @@
 'use strict';
+const bcrypt = require('bcryptjs');
 module.exports = (sequelize, DataTypes) => {
   const User = sequelize.define('User', {
     firstName: {
@@ -23,7 +24,10 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
       unique: true,
     },
-    profilePictureUrl: DataTypes.STRING
+    profilePictureUrl: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
   }, {});
   User.associate = function(models) {
     // associations can be defined here
@@ -37,5 +41,12 @@ module.exports = (sequelize, DataTypes) => {
     // User.belongsTo(models.Comment, { foreignKey: 'userId' })
     // User.belongsTo(models.Subreddit, { foreignKey: 'userId' })
   };
+  // User.methods.hashPassword = function(){
+  //   bcrypt.genSalt(10, function(error, salt){
+  //     bcrypt.hash('password', salt, async (error, hash) => {
+  //         return hash;
+  //     })
+  //   })
+  // }
   return User;
 };

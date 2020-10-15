@@ -1,11 +1,10 @@
 'use strict';
 
-const { now } = require("sequelize/types/lib/utils");
-
 module.exports = {
   up: (queryInterface, Sequelize) => {
-      return queryInterface.bulkInsert('People', [
+      return queryInterface.bulkInsert('Subreddits', [
         {
+          id: 1,
           title: 'Bitcoin',
           description: 'A community dedicated to Bitcoin, the currency of the Internet. Bitcoin is a distributed, worldwide, decentralized digital money. Bitcoins are issued and managed without any central authority whatsoever: there is no government, company, or bank in charge of Bitcoin. You might be interested in Bitcoin if you like cryptography, distributed peer-to-peer systems, or economics. A large percentage of Bitcoin enthusiasts are libertarians, though people of all political philosophies are welcome.',
           userId: 2,
@@ -16,6 +15,7 @@ module.exports = {
           updatedAt: new Date(),
         },
         {
+          id: 2,
           title: 'NBA',
           description: 'A subreddit dedicated for NBA news and discussion.',
           userId: 3,
@@ -26,6 +26,7 @@ module.exports = {
           updatedAt: new Date(),
         },
         {
+          id: 3,
           title: 'Jokes',
           description: 'The funniest sub on reddit. Hundreds of jokes posted each day, and some of them arent even reposts!',
           userId: 3,
@@ -36,6 +37,7 @@ module.exports = {
           updatedAt: new Date(),
         },
         {
+          id: 4,
           title: 'Street Fighter',
           description: 'Street Fighter video game series The subs mission is to build the fighting game community, harbor a healthy competitive nature, and be welcoming to players and fans alike.',
           userId: 2,
@@ -46,6 +48,7 @@ module.exports = {
           updatedAt: new Date(),
         },
         {
+          id: 5,
           title: 'Investing',
           description: 'Lose Money with friends!',
           userId: 4,
@@ -56,6 +59,7 @@ module.exports = {
           updatedAt: new Date(),
         },
         {
+          id: 6,
           title: 'Rick and Morty',
           description: 'This is the subreddit for fans of Dan Harmon & Justin Roilands animated series, Rick and Morty.',
           userId: 5,
@@ -66,6 +70,7 @@ module.exports = {
           updatedAt: new Date(),
         },
         {
+          id: 7,
           title: 'Legends of Runeterra',
           description: 'Set in the League of Legends universe, Legends of Runeterra is the strategy card game created by Riot Games where skill, creativity, and cleverness determine your success.',
           userId: 2,
@@ -76,6 +81,7 @@ module.exports = {
           updatedAt: new Date(),
         },
         {
+          id: 8,
           title: 'Hearthstone',
           description: 'For fans of Blizzard Entertainments digital card game, Hearthstone.',
           userId: 3,
@@ -86,6 +92,7 @@ module.exports = {
           updatedAt: new Date(),
         },
         {
+          id: 9,
           title: 'Programming',
           description: 'Always code as if the guy who ends up maintaining your code will be a violent psychopath who knows where you live. (Martin Golding)',
           userId: 4,

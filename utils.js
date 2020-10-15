@@ -4,8 +4,6 @@ const { User } = require('./models')
 const asyncHandler = (handler) => (req, res, next) => handler(req, res, next).catch(next);
 
 
-
-
 //Verify Json Web Token
 function verifyToken(req, res, next) {
     const bearerHeader = req.headers['authorization'];
