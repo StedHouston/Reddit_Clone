@@ -55,8 +55,7 @@ router.post('/', verifySignupInfo, asyncHandler(async (req, res) => {
                     email: email
                 }
             })
-            console.log("----------   " + tempUser)
-            console.log(tempUser)
+
             let tokenUser = {
                 userName: userName,
                 id: tempUser.dataValues.id,
