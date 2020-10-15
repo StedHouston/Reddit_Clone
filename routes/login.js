@@ -22,6 +22,9 @@ router.post('/', verifyLoginInfo, asyncHandler(async  (req, res) => {
         }
     })
 
+    if(!loginUser){
+        return res.status(400).json({'error': ['Email is not registered']})
+    }
 
     bcrypt.compare(password, loginUser.dataValues.password, (error, result) => {
 
@@ -42,7 +45,7 @@ router.post('/', verifyLoginInfo, asyncHandler(async  (req, res) => {
                 })
             })
         }else{
-            res.status(400).send();
+            res.status(400).json({'error': ['Password is incorrect']});
         }
     })
 
