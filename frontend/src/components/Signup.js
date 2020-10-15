@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { LoggedInAction } from '../Actions/LoggedIn';
+import { signupValidations } from '../utils';
 import 'bulma/css/bulma.css';
 import './Signup.css';
 
@@ -24,7 +25,11 @@ function Signup(){
 
     async function handleSubmit(){
 
-
+        let possibleErrors = signupValidations(email, firstName, lastName, userName, password, confirmPassword)
+        if(possibleErrors){
+            setErrors(possibleErrors);
+            return;
+        }
         let response = await fetch(`http://localhost:8080/signup`, {
             method: 'POST',
             headers: {

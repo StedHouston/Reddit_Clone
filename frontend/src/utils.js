@@ -14,11 +14,37 @@ function loginValidations(email, password){
     return errors
 }
 
+function signupValidations(email, firstName, lastName, userName, password, confirmPassword){
+    let errors = [];
+    if(!email){
+        errors.push('An email was not provided')
+    }
+    if(!firstName){
+        errors.push('A first name was not provided')
+    }
+    if(!lastName){
+        errors.push('A last name was not provided')
+    }
+    if(!userName){
+        errors.push('A user name was not provided')
+    }
+    if(!password){
+        errors.push('A password was not provided')
+    }
+    if(!confirmPassword){
+        errors.push('Please confirm your password')
+    }
+    if(password !== confirmPassword){
+        errors.push('Passwords do not match')
+    }
+    return errors;
+}
 
 
 
 
 module.exports = {
     notEmpty,
-    loginValidations
+    loginValidations,
+    signupValidations
 }
