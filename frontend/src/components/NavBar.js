@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link, useHistory } from 'react-router-dom';
 import './NavBar.css';
 import { LoggedOutAction } from '../Actions/LoggedIn';
-import { fetchSubreddit } from '../Actions/subreddits';
+// import { fetchSubreddit } from '../Actions/subreddits';
 
 
 
