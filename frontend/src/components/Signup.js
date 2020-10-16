@@ -32,7 +32,7 @@ function Signup(){
             return;
         }
 
-        let response = await fetch(`http://localhost:8080/signup`, {
+        let response = await fetch(`https://read-it1.herokuapp.com/signup`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

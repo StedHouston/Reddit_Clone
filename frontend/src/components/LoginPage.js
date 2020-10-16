@@ -23,7 +23,7 @@ function LoginPage(){
             setErrors(errors)
             return;
         }
-        let response = await fetch(`http://localhost:8080/login`, {
+        let response = await fetch(`https://read-it1.herokuapp.com/login`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -51,7 +51,7 @@ function LoginPage(){
 
     async function handleDemoSubmit(){
 
-        let response = await fetch(`http://localhost:8080/login`, {
+        let response = await fetch(`https://read-it1.herokuapp.com/login`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

@@ -18,7 +18,7 @@ function PostCard(props) {
     useEffect(() => {
         async function fetchData(){
 
-            let response = await fetch(`http://localhost:8080/users/${Post.userId}`, {
+            let response = await fetch(`https://read-it1.herokuapp.com/users/${Post.userId}`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -27,7 +27,7 @@ function PostCard(props) {
             })
             let fullname = await response.json()
 
-            let response2 = await fetch(`http://localhost:8080/subreddits/${subreddit.id}/posts/${Post.id}/comments`, {
+            let response2 = await fetch(`https://read-it1.herokuapp.com/subreddits/${subreddit.id}/posts/${Post.id}/comments`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',

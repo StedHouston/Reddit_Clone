@@ -18,7 +18,7 @@ function Comment(props){
         async function fetchData(){
 
             //fetch user name of author of comment
-            let response = await fetch(`http://localhost:8080/users/${comment.userId}`, {
+            let response = await fetch(`https://read-it1.herokuapp.com/users/${comment.userId}`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',

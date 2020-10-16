@@ -19,7 +19,7 @@ function SubredditPage() {
         window.scrollTo(0, 0)
         async function fetchData(){
             //retreives subreddit information
-            let response = await fetch(`http://localhost:8080/subreddits/${id}`, {
+            let response = await fetch(`https://read-it1.herokuapp.com/subreddits/${id}`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -30,7 +30,7 @@ function SubredditPage() {
             setSubreddit(results[0])
 
             //retreives posts for subreddit
-            let response2 = await fetch(`http://localhost:8080/subreddits/${id}/posts`, {
+            let response2 = await fetch(`https://read-it1.herokuapp.com/subreddits/${id}/posts`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -46,7 +46,7 @@ function SubredditPage() {
     },[])
 
     async function deletePost(subredditId, userId, postId){
-        let response = await fetch(`http://localhost:8080/subreddits/${subredditId}/delete_post`, {
+        let response = await fetch(`https://read-it1.herokuapp.com/subreddits/${subredditId}/delete_post`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -60,7 +60,7 @@ function SubredditPage() {
         })
         let results = await response.json()
 
-        let response2 = await fetch(`http://localhost:8080/subreddits/${id}/posts`, {
+        let response2 = await fetch(`https://read-it1.herokuapp.com/subreddits/${id}/posts`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',

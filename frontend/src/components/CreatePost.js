@@ -38,7 +38,7 @@ function CreatePost(){
         let token = localStorage.getItem('token')
 
         if(token !== null){
-            let response = await fetch(`http://localhost:8080/subreddits/${id}/create_post`, {
+            let response = await fetch(`https://read-it1.herokuapp.com/subreddits/${id}/create_post`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

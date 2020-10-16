@@ -42,9 +42,8 @@ function signupValidations(email, firstName, lastName, userName, password, confi
 
 
 
-
 module.exports = {
     notEmpty,
     loginValidations,
-    signupValidations
+    signupValidations,
 }

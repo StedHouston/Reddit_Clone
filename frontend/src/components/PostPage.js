@@ -25,7 +25,7 @@ function PostPage(){
         async function fetchData(){
 
             //fetch user name of author of post
-            let response = await fetch(`http://localhost:8080/users/${post.userId}`, {
+            let response = await fetch(`https://read-it1.herokuapp.com/users/${post.userId}`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -36,7 +36,7 @@ function PostPage(){
 
 
             //Fetch all comments for given post
-            let response2 = await fetch(`http://localhost:8080/subreddits/${subreddit.id}/posts/${post.id}/comments`, {
+            let response2 = await fetch(`https://read-it1.herokuapp.com/subreddits/${subreddit.id}/posts/${post.id}/comments`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -74,7 +74,7 @@ function PostPage(){
         let token = localStorage.getItem('token')
 
 
-            let response = await fetch(`http://localhost:8080/comments/create_comment`, {
+            let response = await fetch(`https://read-it1.herokuapp.com/comments/create_comment`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -92,7 +92,7 @@ function PostPage(){
     }
 
     async function deleteComment(commentUserId, commentId, subredditId, postId) {
-        let response = await fetch(`http://localhost:8080/comments/delete_comment`, {
+        let response = await fetch(`https://read-it1.herokuapp.com/comments/delete_comment`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -106,7 +106,7 @@ function PostPage(){
 
         let result = await response.json()
 
-        let response2 = await fetch(`http://localhost:8080/subreddits/${subredditId}/posts/${postId}/comments`, {
+        let response2 = await fetch(`https://read-it1.herokuapp.com/subreddits/${subredditId}/posts/${postId}/comments`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',

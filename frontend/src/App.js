@@ -20,7 +20,6 @@ function App(props) {
     return (
       <BrowserRouter>
         <div>
-        {/* <NavBar /> */}
           <Switch>
             <Route path={"/signup"}>
               <NavBar/>
