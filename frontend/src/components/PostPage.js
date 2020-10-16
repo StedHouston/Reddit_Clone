@@ -135,9 +135,6 @@ function PostPage(){
                             <div style={{color: 'rgb(135,138,140)', marginBottom: '15px'}}>
                                 {Object.keys(comments).length} comments
                             </div>
-                            <div style={{color: 'rgb(49,115,220)', fontWeight: 'bold'}}>
-                                Commenting as Blak06
-                            </div>
                             <textarea style={{height: '200px', width:'100%', fontSize: '20px', marginBottom: '10px', padding: '15px'}} onChange={(e) => setNewComment(e.target.value)} value={newComment}></textarea>
                             {error ? <div className="error">{error}</div> : <div></div>}
                             <button className="button is-info" onClick={handleSubmit}>Comment</button>
