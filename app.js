@@ -11,7 +11,7 @@ const userRouter = require('./routes/user')
 const commentRouter = require('./routes/comment')
 const { asyncHandler } = require('./utils')
 const path = require('path')
-// require('dotenv').config()
+require('dotenv').config()
 
 
 const app = express()
@@ -41,4 +41,4 @@ if(process.env.NODE_ENV === 'production'){
 
 const PORT = process.env.PORT || 8080
 
-app.listen(PORT)
+app.listen(PORT, ()=> {console.log('running on port ' + PORT)})

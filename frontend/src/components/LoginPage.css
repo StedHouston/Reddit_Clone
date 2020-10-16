@@ -7,7 +7,6 @@
     border: solid black 2px;
     margin: 0 auto;
     width: 300px;
-    /* margin-top: 200px; */
     background-color: white;
     border-radius: 5px;
 }
@@ -26,4 +25,15 @@
 
 .LoginButton{
     margin-top: 15px;
+    margin-right: 3px;
+}
+
+.DemoButton{
+    margin-top: 15px;
+    margin-left: 3px;
+}
+
+.loginbuttons{
+    display: flex;
+    justify-content: space-around;
 }

@@ -26,27 +26,39 @@
 }
 
 .NavBar__github{
-    height: 43px;
-    width: 43px;
+    height: 50px;
+    width: 50px;
     margin-top: 2px;
 }
 
 .NavBar__searchButton{
-    /* margin-right: 350px; */
     margin-top: 9px;
 
 }
 
 .signupButton{
-    margin-top: 3px;
-    /* margin-left: 5px; */
+    margin-top: 9px;
+    margin-right: 5px;
 }
 
 .loginButton{
-    margin-top: 3px;
+    margin-top: 9px;
     margin-right: 5px;
 }
 
 .logoutButton{
-    margin-top: 4px;
+    margin-top: 9px;
+    margin-right: 5px;
+}
+
+.linkedin_icon{
+    height: 40px;
+    width: 40px;
+    margin-bottom: 3px;
+}
+
+.angelist_icon{
+    height: 48px;
+    width: 50px;
+    margin-top: 2px;
 }

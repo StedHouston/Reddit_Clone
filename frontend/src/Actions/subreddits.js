@@ -5,7 +5,7 @@ const SUBREDDIT_WITH_POST = 'SUBREDDIT_WITH_POST';
 //fetch all subreddits
 export const fetchSubreddits = () => {
     return async (dispatch) => {
-        let response = await fetch('https://read-it1.herokuapp.com/subreddits/', {
+        let response = await fetch('http://localhost:8080/subreddits/', {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -61,12 +61,3 @@ export const fetchSubredditAndPosts = (id) => {
         // dispatch(subredditInfoWithPosts(results))
     }
 }
-
-
-// module.exports = {
-//     subredditsList,
-//     fetchSubreddits,
-//     fetchSubreddit,
-//     fetchSubredditAndPosts,
-//     subredditInfoWithPosts
-// }

@@ -5,7 +5,6 @@
     background-color: white;
     border-radius: 5px;
     margin-top: 50px;
-    /* margin-left: 561px; */
 }
 
 #SubredditCard{
@@ -18,10 +17,6 @@
 
 .SubredditCard__title{
     font-weight: bold;
-}
-
-.SubredditCard__link{
-
 }
 
 .SubredditCard__button{

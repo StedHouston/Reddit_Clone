@@ -49,6 +49,33 @@ function LoginPage(){
 
     }
 
+    async function handleDemoSubmit(){
+
+        let response = await fetch(`http://localhost:8080/login`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                "email": 'demoUser@gmail.com',
+                "password": 'password'
+            })
+
+        })
+
+        if(!response.ok){
+            let result = await response.json()
+            setErrors(result.error)
+            return;
+        }
+        let result = await response.json()
+        localStorage.setItem('token', result.token)
+        if(result.token){
+            dispatch(LoggedInAction(result.id))
+        }
+        history.push(`/`)
+
+    }
 
     return(
              <div className="LoginPage">
@@ -66,9 +93,14 @@ function LoginPage(){
                         </div>
                         <div className="control">
                             {errors.map(error => <div style={{color: 'red'}} key={error}>{error}</div>)}
-                            <button onClick={handleSubmit} className="LoginButton button is-link">
-                                Login
-                            </button>
+                            <div className="loginbuttons">
+                                <button onClick={handleSubmit} className="LoginButton button is-link">
+                                    Login
+                                </button>
+                                <button onClick={handleDemoSubmit} className="DemoButton button is-link">
+                                    Demo Login
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>

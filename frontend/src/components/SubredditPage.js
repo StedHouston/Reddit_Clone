@@ -4,13 +4,12 @@ import './SubredditPage.css';
 import SubredditHeader from './SubredditHeader';
 import PostCard from './PostCard';
 import AboutCommunity from './AboutCommunity';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 
 
 function SubredditPage() {
     let { id } = useParams();
-    let dispatch = useDispatch();
     let history = useHistory();
     const [subreddit, setSubreddit] = useState({});
     const [Posts, setPosts] = useState([]);
@@ -28,7 +27,6 @@ function SubredditPage() {
 
             })
             let results = await response.json()
-            console.log(results)
             setSubreddit(results[0])
 
             //retreives posts for subreddit
@@ -40,7 +38,6 @@ function SubredditPage() {
 
             })
             let retreivedPosts = await response2.json()
-            console.log(retreivedPosts)
             setPosts(retreivedPosts)
         }
         fetchData();
@@ -62,7 +59,7 @@ function SubredditPage() {
 
         })
         let results = await response.json()
-        console.log(results)
+
         let response2 = await fetch(`http://localhost:8080/subreddits/${id}/posts`, {
             method: 'GET',
             headers: {

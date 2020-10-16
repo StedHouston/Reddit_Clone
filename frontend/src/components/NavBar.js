@@ -8,13 +8,13 @@ import { fetchSubreddit } from '../Actions/subreddits';
 
 
 
+
 function NavBar() {
     const [inputSearch, setInputSearch] = useState('')
     const dispatch = useDispatch();
     const loggedIn = useSelector(state => state.LoggedInReducer.loggedIn)
 
     const history = useHistory();
-    console.log(loggedIn)
 
 
 
@@ -57,14 +57,26 @@ function NavBar() {
 
                 {loggedIn ? <p className="control">
                                 <button onClick={handleLogout} className="button is-danger logoutButton">Log Out</button>
+                                <a className="linkedin_icon"href="https://www.linkedin.com/in/stedman-houston-97b11213a/">
+                                    <img className="linkedin_icon" src="/images/linkedin_icon.png"/>
+                                </a>
                                 <a href="https://github.com/StedHouston">
                                     <img className="NavBar__github" src="/images/GitHub-icon.png" alt=''/>
+                                </a>
+                                <a href="https://angel.co/u/stedman-houston">
+                                    <img className="NavBar__github" src="/images/angelist_icon.png" alt=''/>
                                 </a>
                             </p> : <p className="control sideButtons">
                                         <button onClick={handleLogin} className="button is-link loginButton">Log In</button>
                                         <button onClick={signUp} className="button is-link signupButton">Signup</button>
+                                        <a className="linkedin_icon"href="https://www.linkedin.com/in/stedman-houston-97b11213a/">
+                                            <img className="linkedin_icon" src="/images/linkedin_icon.png"/>
+                                        </a>
                                         <a href="https://github.com/StedHouston">
                                             <img className="NavBar__github" src="/images/GitHub-icon.png" alt=''/>
+                                        </a>
+                                        <a href="https://angel.co/u/stedman-houston">
+                                            <img className="angelist_icon" src="/images/angelist_icon.png" alt=''/>
                                         </a>
                                     </p>}
             </div>

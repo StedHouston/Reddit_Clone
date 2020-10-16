@@ -15,7 +15,6 @@ function HomePage(){
     let subreddits = useSelector(state => state.subreddits);
 
     let subs = subreddits.subreddits;
-    console.log(subs)
 
     if(notEmpty(subreddits)){
         return(

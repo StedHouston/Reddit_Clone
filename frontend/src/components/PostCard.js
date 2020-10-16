@@ -35,7 +35,6 @@ function PostCard(props) {
 
             })
             let comments = await response2.json()
-            console.log(comments)
 
 
             setFirstName(fullname.firstName)

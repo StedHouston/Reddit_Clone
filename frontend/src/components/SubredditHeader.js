@@ -6,7 +6,7 @@ import './SubredditHeader.css'
 
 function SubredditHeader(props){
     let subreddit = props.subreddit;
-    console.log(subreddit)
+
     return (
         <div className="Subreddit">
             <img className="Subreddit__banner" src={subreddit.bannerUrl} alt=""/>

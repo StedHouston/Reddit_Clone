@@ -17,10 +17,3 @@ export const LoggedOutAction = () => {
         id: ''
     }
 }
-
-
-
-// module.exports = {
-//     LoggedInAction,
-//     LoggedOutAction,
-// }

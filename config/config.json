@@ -14,8 +14,10 @@
     "dialect": "postgres"
   },
   "production": {
-    "dialect": "postgres",
-    "seederStorage": "sequelize",
-    "use_env_variable": "DATABASE_URL"
+    "username": "reddit_user",
+    "password": "password",
+    "database": "reddit_app",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
   }
 }
