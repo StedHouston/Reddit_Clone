@@ -3,7 +3,7 @@ const SUBREDDIT_WITH_POST = 'SUBREDDIT_WITH_POST';
 
 
 //fetch all subreddits
-const fetchSubreddits = () => {
+export const fetchSubreddits = () => {
     return async (dispatch) => {
         let response = await fetch('http://localhost:8080/subreddits/', {
             method: 'GET',
@@ -16,7 +16,7 @@ const fetchSubreddits = () => {
     }
 }
 //action for the search results on homepage
-const subredditsList = (subreddits) => {
+export const subredditsList = (subreddits) => {
     return {
         type: SUBREDDIT_LIST,
         subreddits: subreddits,
@@ -24,7 +24,7 @@ const subredditsList = (subreddits) => {
 }
 
 //action to retrieve subreddit info and posts associated
-const subredditInfoWithPosts = (subreddit, post) => {
+export const subredditInfoWithPosts = (subreddit, post) => {
     return {
         type: SUBREDDIT_WITH_POST,
         subreddit: subreddit,
@@ -33,7 +33,7 @@ const subredditInfoWithPosts = (subreddit, post) => {
 }
 
 //fetch search subreddit
-const fetchSubreddit = (searchTerm) => {
+export const fetchSubreddit = (searchTerm) => {
     return async (dispatch) => {
         let response = await fetch(`http://localhost:8080/subreddits/single/${searchTerm}`, {
             method: 'GET',
@@ -47,7 +47,7 @@ const fetchSubreddit = (searchTerm) => {
 }
 
 //fetch subreddit info and all posts
-const fetchSubredditAndPosts = (id) => {
+export const fetchSubredditAndPosts = (id) => {
     return async (dispatch) => {
         let response = await fetch(`http://localhost:8080/subreddits/${id}/withPosts`, {
             method: 'GET',
@@ -63,10 +63,10 @@ const fetchSubredditAndPosts = (id) => {
 }
 
 
-module.exports = {
-    subredditsList,
-    fetchSubreddits,
-    fetchSubreddit,
-    fetchSubredditAndPosts,
-    subredditInfoWithPosts
-}
+// module.exports = {
+//     subredditsList,
+//     fetchSubreddits,
+//     fetchSubreddit,
+//     fetchSubredditAndPosts,
+//     subredditInfoWithPosts
+// }

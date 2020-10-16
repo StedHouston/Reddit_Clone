@@ -2,7 +2,7 @@ const LOGGED_IN = 'LOGGED_IN';
 const LOGGED_OUT = 'LOGGED_OUT';
 
 
-const LoggedInAction = (id) => {
+export const LoggedInAction = (id) => {
     return {
         type: LOGGED_IN,
         loggedIn: true,
@@ -10,7 +10,7 @@ const LoggedInAction = (id) => {
     }
 }
 
-const LoggedOutAction = () => {
+export const LoggedOutAction = () => {
     return {
         type: LOGGED_OUT,
         loggedIn: false,
@@ -20,7 +20,7 @@ const LoggedOutAction = () => {
 
 
 
-module.exports = {
-    LoggedInAction,
-    LoggedOutAction,
-}
+// module.exports = {
+//     LoggedInAction,
+//     LoggedOutAction,
+// }
