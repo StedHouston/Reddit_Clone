@@ -11,7 +11,7 @@ const userRouter = require('./routes/user')
 const commentRouter = require('./routes/comment')
 const { asyncHandler } = require('./utils')
 const path = require('path')
-require('dotenv').config()
+// require('dotenv').config()
 
 
 const app = express()
