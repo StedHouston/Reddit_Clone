@@ -5,7 +5,6 @@ import SubredditHeader from './SubredditHeader';
 import PostCard from './PostCard';
 import AboutCommunity from './AboutCommunity';
 import { useDispatch, useSelector } from 'react-redux';
-import fetchSubredditAndPosts from '../Actions/subreddits';
 
 
 

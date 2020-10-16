@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import AboutCommunity from './AboutCommunity';
 import Comment from './Comment';
-import SubredditHeader from './SubredditHeader';
 import './PostPage.css';
 
 
@@ -124,7 +123,6 @@ function PostPage(){
 
     return (
         <>
-            {/* <SubredditHeader subreddit={subreddit}/> */}
             <div className="PostPage">
                 <div className="PostPage__Container">
                     <div className="PostPage__PostandComments">
